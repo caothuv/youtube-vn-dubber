@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Lồng tiếng Việt AI</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>🎧 Lồng tiếng Việt AI</h1>
+<div id="status" class="status">Đang kiểm tra server...</div>
+
+<label class="row"><input type="checkbox" id="enabled"> Bật lồng tiếng trên video đang mở</label>
+
+<h2>Giọng đọc</h2>
+<select id="voice" class="full"></select>
+<div class="hint">Mặc định: VieNeu-TTS v3 Turbo (chạy local, 0 GB VRAM). Giọng "clone" cần file mẫu trong server/custom_voices/.</div>
+<button id="refreshVoices" class="btn small">🔄 Cập nhật giọng</button>
+<button id="addVoice" class="btn small">➕ Thêm giọng mới</button>
+<input type="file" id="voiceFile" accept=".wav,.mp3" hidden>
+<input type="text" id="voiceName" placeholder="Tên giọng mới (vd: Giọng Anh)" class="full" hidden>
+
+<h2>Dịch (LLM backend)</h2>
+<select id="preset" class="full">
+  <option value="unsloth">🦥 Unsloth Desktop (local, mặc định)</option>
+  <option value="deepseek">🐋 DeepSeek API (cloud)</option>
+  <option value="ollama">🦙 Ollama (local)</option>
+  <option value="lmstudio">🖥️ LM Studio (local)</option>
+  <option value="gemini">✨ Google Gemini (cloud)</option>
+  <option value="custom">⚙️ Tùy chỉnh</option>
+</select>
+<input type="text" id="baseUrl" placeholder="Base URL, vd: http://127.0.0.1:8888/v1" class="full">
+<input type="text" id="model" placeholder="Model (để trống = tự quét)" class="full">
+<button id="scanModels" class="btn small">🔄 Quét model</button>
+<span id="modelList" class="hint"></span>
+
+<h2>Từ điển thuật ngữ (giữ nguyên / dịch theo ý anh)</h2>
+<textarea id="glossary" rows="3" placeholder="Mỗi dòng 1 từ: thread = luồng xử lý&#10;yield = lợi suất" class="full"></textarea>
+
+<h2>Âm lượng tiếng gốc khi lồng</h2>
+<input type="range" id="duck" min="0" max="0.5" step="0.05" value="0.15" class="full">
+<span id="duckVal" class="hint">15% (tiếng gốc còn 15%)</span>
+
+<h2>Phụ đề</h2>
+<select id="subMode" class="full">
+  <option value="vi">Chỉ tiếng Việt</option>
+  <option value="both">Song ngữ Việt - Anh</option>
+  <option value="off">Tắt</option>
+</select>
+
+<button id="save" class="btn primary full">💾 Lưu cài đặt</button>
+
+<h2>🔄 Cập nhật</h2>
+<div class="hint">Server: <b id="curVer">?</b> — bấm kiểm tra, có bản mới thì bấm "Cập nhật ngay", server tự tải về, thay file và khởi động lại. Anh không cần cài lại tay.</div>
+<button id="checkUpdate" class="btn small">🔍 Kiểm tra cập nhật</button>
+<div id="updateInfo" class="hint"></div>
+<button id="applyUpdate" class="btn primary full" hidden>⬆️ Cập nhật ngay</button>
+
+<div class="hint foot">Extension đang chạy bản giải nén: muốn cập nhật extension thì tải zip mới rồi bấm nút Làm mới (↻) ở chrome://extensions. Đăng Chrome Web Store sau này sẽ tự cập nhật im lặng.</div>
+<script src="popup.js"></script>
+</body>
+</html>

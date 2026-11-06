@@ -1,0 +1,56 @@
+/* content.css — nút + phụ đề + khung tóm tắt trên trang YouTube */
+.yvdub-btn {
+  color: #fff !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  padding: 0 8px !important;
+  border-radius: 18px !important;
+  background: rgba(255,255,255,0.12) !important;
+  white-space: nowrap;
+}
+.yvdub-btn:hover { background: rgba(255,255,255,0.25) !important; }
+.yvdub-btn.yvdub-on { background: #1a73e8 !important; color: #fff !important; }
+.yvdub-btn:disabled { opacity: 0.4; cursor: default; }
+.yvdub-float {
+  position: fixed; right: 16px; bottom: 90px; z-index: 9999;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.yvdub-float .yvdub-btn {
+  background: #1a73e8 !important; padding: 8px 14px !important; font-size: 14px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.yvdub-sub {
+  position: absolute; left: 50%; bottom: 12%; transform: translateX(-50%);
+  max-width: 80%; text-align: center; z-index: 30; display: none;
+  pointer-events: none;
+}
+.yvdub-vi {
+  display: inline-block; background: rgba(0,0,0,0.75); color: #fff;
+  font-size: 20px; line-height: 1.4; padding: 4px 12px; border-radius: 6px;
+}
+.yvdub-en {
+  display: inline-block; background: rgba(0,0,0,0.55); color: #cfe3ff;
+  font-size: 14px; line-height: 1.4; padding: 2px 10px; border-radius: 6px; margin-top: 4px;
+}
+#yvdub-toast {
+  position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%);
+  background: rgba(0,0,0,0.85); color: #fff; padding: 10px 18px; border-radius: 8px;
+  font-size: 14px; z-index: 10000; display: none; max-width: 80vw; text-align: center;
+}
+.yvdub-modal {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 10001;
+  display: flex; align-items: center; justify-content: center;
+}
+.yvdub-modal-box {
+  background: #fff; color: #111; border-radius: 12px; padding: 20px;
+  max-width: 560px; width: 90vw; max-height: 80vh; overflow: auto;
+  font-size: 15px; line-height: 1.6;
+}
+.yvdub-modal-box h3 { margin: 0 0 10px; font-size: 18px; }
+.yvdub-modal-body div { margin-bottom: 6px; }
+.yvdub-modal-actions { margin-top: 14px; display: flex; gap: 8px; }
+.yvdub-btn2 {
+  border: 1px solid #ccc; background: #f2f2f2; border-radius: 8px;
+  padding: 8px 14px; font-size: 14px; cursor: pointer;
+}
+.yvdub-btn2:hover { background: #e4e4e4; }
